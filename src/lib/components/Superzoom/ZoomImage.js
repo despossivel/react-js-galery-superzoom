@@ -1,7 +1,7 @@
 import $ from 'jquery'
 
 const actions = (instanceZoomImage) => $(()=> {
-  $('.image').css(instanceZoomImage.renderZoom()); //metodo de inicializacao
+  $('.image').css(instanceZoomImage.render()); //metodo de inicializacao
   $('.zoom').on('click', () =>  $('.image').css(instanceZoomImage.renderZoom()));
   $('.reset').on('click', ()=> $('.image').css(instanceZoomImage.render()));
   $('.image').on('mousedown', instanceZoomImage.pan());

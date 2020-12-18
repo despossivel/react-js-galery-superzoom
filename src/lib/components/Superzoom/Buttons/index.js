@@ -1,14 +1,14 @@
 import React, {memo} from 'react';
 
-import iconZoomPlus from '../../../assets/icon-zoom-plus.svg'
-import iconZoomMinus from '../../../assets/icon-zoom-minus.svg'
-import iconZoomClose from '../../../assets/icon-close.svg'
+import iconZoomPlus from '../../../../../assets/icons/icon-zoom-plus.svg'
+import iconZoomMinus from '../../../../../assets/icons/icon-zoom-minus.svg'
+import iconZoomClose from '../../../../../assets/icons/icon-close.svg'
 
-const ButtonOpen  = ({ setView }) => <button 
+const ButtonOpen  = memo(({ setView }) => <button 
 className="button-superzoom opacity" 
-onClick={()=>setView(true)} >
+onClick={setView} >
   <img src={iconZoomPlus}  alt="Abrir supersoom"/>
-</button>;
+</button>);
                                 
 export {
   ButtonOpen
@@ -16,7 +16,7 @@ export {
 
 const Buttons = ({instanceZoom, setView}) => <div className="container-buttons">         
 <div className="buttons">
-  <button className="close" onClick={()=>setView(false)}>
+  <button className="close" onClick={()=>setView(true)}>
     <img src={iconZoomClose} alt="Fechar superzoom"/>
   </button>
     <button onClick={()=>instanceZoom.renderZoom()} className="zoom">
