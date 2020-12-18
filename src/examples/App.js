@@ -16,6 +16,9 @@ const App = () => {
         {imageUrl:'https://i.pinimg.com/originals/d3/41/54/d34154b22f5e04a9a63e77ffdecd31fc.jpg'}  ],
         setView: setView
     }}/>
+    <small>
+        <a href="https://github.com/despossivel">@despossivel</a>
+    </small>
     </>
 } ;
 
