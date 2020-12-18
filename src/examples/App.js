@@ -1,8 +1,6 @@
 import React from 'react';
 import {Superzoom} from '../lib'
 
-// import { Container } from './styles';
-
 const src = () => <Superzoom {...{
     modal: true,
     isOpen: true,
