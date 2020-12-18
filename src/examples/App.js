@@ -1,16 +1,19 @@
 import React from 'react';
 import {Superzoom} from '../lib'
 
-const src = () => <Superzoom {...{
-    modal: true,
-    isOpen: true,
-    allImagens: [ 
-    {imageUrl:'https://miro.medium.com/max/4800/1*G-d-F2A4UEJg0p5nIiATDg.png'},
-    {imageUrl:'https://miro.medium.com/max/4800/1*G-d-F2A4UEJg0p5nIiATDg.png'},
-    {imageUrl:'https://miro.medium.com/max/4800/1*G-d-F2A4UEJg0p5nIiATDg.png'},
-    {imageUrl:'https://miro.medium.com/max/4800/1*G-d-F2A4UEJg0p5nIiATDg.png'},
-    {imageUrl:'https://miro.medium.com/max/4800/1*G-d-F2A4UEJg0p5nIiATDg.png'},  ],
-    setView: () => {}
-}}/> ;
+const App = () => {
+    const [ view, setView ] = React.useState(true);
 
-export default src;
+    return <Superzoom {...{
+        modal: false,
+        isOpen: view,
+        allImagens: [ 
+        {imageUrl:'https://i.pinimg.com/originals/ec/88/51/ec88519bfe56f4f03a65820458b46f46.jpg'},
+        {imageUrl:'https://i.pinimg.com/originals/da/a1/a9/daa1a906574d2dbe16e290895e31c362.jpg'},
+        {imageUrl:'https://i.pinimg.com/originals/18/23/4d/18234d15595f5627ef8ed25364673df2.jpg'},
+        {imageUrl:'https://i.pinimg.com/originals/d3/41/54/d34154b22f5e04a9a63e77ffdecd31fc.jpg'}  ],
+        setView: setView
+    }}/>
+} ;
+
+export default App;

@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useState, useMemo, useEffect, useRef} from 'react';
+import React, { memo, useState, useMemo, useEffect, useRef} from 'react';
 import $ from 'jquery'
 import Buttons, {ButtonOpen} from './Buttons'
 import ZoomImage, { actions } from './ZoomImage'
@@ -21,6 +21,9 @@ const Superzoom = ({isOpen = false, modal = false, allImagens = [], setView}) =>
     useEffect(()=>{
       if(!isOpen && imageUrlCurrent) return;
       const shortSleeveZebra = new ZoomImage(imageUrlCurrent, 803, 571);
+
+      console.log(shortSleeveZebra)
+
       actions(shortSleeveZebra)
       setInsanceZoom(shortSleeveZebra)
     }, [isOpen, imageUrlCurrent])
