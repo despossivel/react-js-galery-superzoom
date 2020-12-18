@@ -4,8 +4,10 @@ import {Superzoom} from '../lib'
 const App = () => {
     const [ view, setView ] = React.useState(true);
 
-    return <Superzoom {...{
-        modal: false,
+    return <>
+    {!view && <button onClick={()=>setView(true)}>Open</button> }
+    <Superzoom {...{
+        modal: true,
         isOpen: view,
         allImagens: [ 
         {imageUrl:'https://i.pinimg.com/originals/ec/88/51/ec88519bfe56f4f03a65820458b46f46.jpg'},
@@ -14,6 +16,7 @@ const App = () => {
         {imageUrl:'https://i.pinimg.com/originals/d3/41/54/d34154b22f5e04a9a63e77ffdecd31fc.jpg'}  ],
         setView: setView
     }}/>
+    </>
 } ;
 
 export default App;

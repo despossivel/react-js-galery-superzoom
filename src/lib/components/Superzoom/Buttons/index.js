@@ -1,8 +1,8 @@
 import React, {memo} from 'react';
 
-import iconZoomPlus from '../../../../../assets/icons/icon-zoom-plus.svg'
-import iconZoomMinus from '../../../../../assets/icons/icon-zoom-minus.svg'
-import iconZoomClose from '../../../../../assets/icons/icon-close.svg'
+import iconZoomPlus from '../../../assets/icon-zoom-plus.svg'
+import iconZoomMinus from '../../../assets/icon-zoom-minus.svg'
+import iconZoomClose from '../../../assets/icon-close.svg'
 
 const ButtonOpen  = memo(({ setView }) => <button 
 className="button-superzoom opacity" 
