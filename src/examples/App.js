@@ -5,7 +5,19 @@ const App = () => {
     const [ view, setView ] = React.useState(true);
 
     return <>
-    {!view && <button onClick={()=>setView(true)}>Open</button> }
+    {!view && <>
+    <button onClick={()=>setView(true)}>Open</button> 
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <small>
+      <a href="https://github.com/despossivel">@despossivel</a>
+    </small>
+    </>}
+    
     <Superzoom {...{
         modal: true,
         isOpen: view,
@@ -16,9 +28,7 @@ const App = () => {
         {imageUrl:'https://i.pinimg.com/originals/d3/41/54/d34154b22f5e04a9a63e77ffdecd31fc.jpg'}  ],
         setView: setView
     }}/>
-    <small>
-        <a href="https://github.com/despossivel">@despossivel</a>
-    </small>
+    
     </>
 } ;
 
