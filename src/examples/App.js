@@ -26,7 +26,9 @@ const App = () => {
         {imageUrl:'https://i.pinimg.com/originals/da/a1/a9/daa1a906574d2dbe16e290895e31c362.jpg'},
         {imageUrl:'https://i.pinimg.com/originals/18/23/4d/18234d15595f5627ef8ed25364673df2.jpg'},
         {imageUrl:'https://i.pinimg.com/originals/d3/41/54/d34154b22f5e04a9a63e77ffdecd31fc.jpg'}  ],
-        setView: setView
+        setView: setView,
+        widthImageLimits: 803, 
+        heightImageLimits: 571
     }}/>
     
     </>

@@ -7,7 +7,7 @@ import Minimap from './Minimap'
 
 import './superzoom.global.css'
 
-const Superzoom = ({isOpen = false, modal = false, allImagens = [], setView}) => {
+const Superzoom = ({isOpen = false, modal = false, allImagens = [], setView,   widthImageLimits = 803, heightImageLimits = 571}) => {
   const [instanceZoom, setInsanceZoom] = useState(false);
   const [imageUrlCurrent, setImageUrlCurrent] = useState(false)
   const imageRef = useRef(0);
@@ -34,7 +34,7 @@ const Superzoom = ({isOpen = false, modal = false, allImagens = [], setView}) =>
 
     const initialImage = useCallback((imageUrlReceive)=>{
       if(!isOpen && imageUrlCurrent) return;
-      const shortSleeveZebra = new ZoomImage(imageUrlReceive ? imageUrlReceive : imageUrlCurrent, 803, 571);
+      const shortSleeveZebra = new ZoomImage(imageUrlReceive ? imageUrlReceive : imageUrlCurrent, widthImageLimits, heightImageLimits);
       actions(shortSleeveZebra)
       setInsanceZoom(shortSleeveZebra)
     },[])

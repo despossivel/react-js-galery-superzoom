@@ -27,7 +27,8 @@ function getBackgroundY(elem) {
  
  // define new function object
  class ZoomImage {
-  constructor(imageUrl, width, height) {
+ 
+  constructor(imageUrl, width = 803, height = 571) {
     this.imageUrl = imageUrl;
     this.width = width || 1000;
     this.height = height || 1000;
