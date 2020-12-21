@@ -20,6 +20,9 @@ or
 ### Example use
 
 ```js
+
+import Superzoom from 'react-js-gallery-superzoom'
+
 <Superzoom  {...{
 	modal:  false,
 	isOpen: view,
