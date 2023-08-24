@@ -1,5 +1,13 @@
-import Superzoom from './components/Superzoom'
+import {
+    AudioProvider,
+    WebSocketProvider,
+    useAudio,
+    useWebSocket,
+} from './src/contexts/index.js'
 
 export {
-    Superzoom
+    AudioProvider,
+    WebSocketProvider,
+    useAudio,
+    useWebSocket,
 }
