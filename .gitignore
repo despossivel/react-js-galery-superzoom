@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/src/example-vite/node_modules
 /.pnp
 .pnp.js
 /dist

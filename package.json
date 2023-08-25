@@ -1,5 +1,5 @@
 {
-  "name": "SDKDemo003",
+  "name": "tryvoice",
   "version": "0.0.1",
   "private": false,
   "main": "dist/index.js",
@@ -10,7 +10,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/despossivel/SDKDemo003"
+    "url": "https://github.com/despossivel/tryvoice"
   },
   "dependencies": {
     "jquery": "^3.5.1",
