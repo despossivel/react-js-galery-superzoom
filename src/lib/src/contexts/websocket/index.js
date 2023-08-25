@@ -23,7 +23,9 @@ const WebSocketProvider = ({ children }) => {
                 sub
             },
         });
+     
 
+        console.log('socket: ', socket)
         setSocket(socket);
         return socket;
 
@@ -67,7 +69,9 @@ const WebSocketProvider = ({ children }) => {
 
     const ONaudio = async (callback) => socket.on('audio', callback)
 
-    const ONstarted = async (callback) => socket.on('ONstarted', callback)
+    const ONstarted = useCallback(async (callback) => {
+        socket.on('ONstarted', callback)
+    }, [socket])
 
     const disconnect = async (callback) => socket.on('disconnect', callback)
 
