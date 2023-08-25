@@ -10,9 +10,9 @@
     "preview": "npx vite preview"
   },
   "dependencies": {
-    "SDKDemo003": "/Users/matheus.brito/Documents/lab/MVP/SDK/",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "tryvoice": "/Users/matheus.brito/Documents/lab/MVP/SDK/"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
