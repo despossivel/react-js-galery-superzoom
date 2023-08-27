@@ -24,8 +24,7 @@ const WebSocketProvider = ({ children }) => {
             },
         });
      
-
-        console.log('socket: ', socket)
+ 
         setSocket(socket);
         return socket;
 

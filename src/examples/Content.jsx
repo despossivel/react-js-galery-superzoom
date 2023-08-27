@@ -79,8 +79,7 @@ const Content = () => {
 
         // const userData = await keycloak.loadUserInfo()
         const socket = await connectSocket({ host: 'http://192.168.0.108:3000', sub: '341964aa-f385-4489-878a-6db0a8798901', token: 'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6IC…Bi87QsfSvMK8SX6GJX2o5uGpo9oCgyoCOZ_1VsbCDUHsU4JYQ' })
-
-        console.log('socket: ', socket)
+ 
 
         return () => socket.disconnect();
 

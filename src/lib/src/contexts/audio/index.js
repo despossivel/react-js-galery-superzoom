@@ -67,13 +67,15 @@ const AudioProvider = ({ children }) => {
   const stopRecording = (mediaRecorderParam) => {
 
     if (mediaRecorderParam && mediaRecorderParam.state === 'recording') {
+      setRecordingDone(true)
+      
       mediaRecorderParam.requestData();
 
       mediaRecorderParam.stop();
       recognition.stop()
 
       cancelAnimationFrame(animationFrameId);
-      setRecordingDone(true)
+
 
     }
   };

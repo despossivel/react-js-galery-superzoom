@@ -100,9 +100,7 @@ const Content = () => {
         console.error(e)
       }
     })()
-  }, [
-    // initialized, keycloak, keycloak?.token
-  ]);
+  }, []);
 
 
 
@@ -112,9 +110,7 @@ const Content = () => {
     try {
 
       if (!socket) return;
-
-      console.log('sss', socket)
-
+ 
       ONstarted(async () => {
         await resetBase64StringStreamAudio()
         // audioLoad(audioLoader, 'assets/audios/junggle__btn402.wav')
@@ -126,8 +122,7 @@ const Content = () => {
         // audioLoad(audioLoader, 'assets/audios/junggle__btn402.wav')
         startRecording()
         await resetBase64StringStreamAudio()
-
-        console.log('ONtextTranscriptNotVoice: ', ONtextTranscriptNotVoice)
+ 
 
       })
 
