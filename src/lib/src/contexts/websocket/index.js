@@ -23,8 +23,8 @@ const WebSocketProvider = ({ children }) => {
                 sub
             },
         });
-     
- 
+
+
         setSocket(socket);
         return socket;
 
@@ -74,10 +74,10 @@ const WebSocketProvider = ({ children }) => {
 
     const disconnect = async (callback) => socket.on('disconnect', callback)
 
-    const ONtextSpeech = async ({ voice, text }) => socket.emit('text:speech', {
+    const EMITtextSpeech = async ({ coreAi, voice, text }) => socket.emit('text:speech', {
         voice,
         text,
-
+        coreAi,
         LANGUAGE_CODE: (navigator.language || navigator.userLanguage)
     })
 
@@ -92,7 +92,7 @@ const WebSocketProvider = ({ children }) => {
         ONaudio,
         ONstarted,
         disconnect,
-        ONtextSpeech,
+        EMITtextSpeech,
         connectSocket
     }} >
         {children}
