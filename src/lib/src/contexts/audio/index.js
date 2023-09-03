@@ -25,6 +25,9 @@ const AudioProvider = ({ children }) => {
   const [recordingDone, setRecordingDone] = useState(false)
 
 
+  const mediaRecorderRef = useRef()
+
+
   if (window.SpeechRecognition || window.webkitSpeechRecognition) {
 
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -44,8 +47,11 @@ const AudioProvider = ({ children }) => {
     };
 
     recognition.onerror = (event) => {
-      console.error('Erro no reconhecimento de fala:', event.error);
-      setNoSpeech(true)
+      console.error('Erro no reconhecimento de fala trycath:', event.error);
+      if (event.error !== 'network') {
+        setNoSpeech(true)
+        setRecognitionTranscript('')
+      }
     };
 
   }
@@ -64,14 +70,14 @@ const AudioProvider = ({ children }) => {
     setRecognitionTranscript('')
   }
 
-  const stopRecording = (mediaRecorderParam) => {
+  const stopRecording = () => {
 
-    if (mediaRecorderParam && mediaRecorderParam.state === 'recording') {
+    if (mediaRecorderRef.current && mediaRecorderRef.current.state === 'recording') {
       setRecordingDone(true)
-      
-      mediaRecorderParam.requestData();
 
-      mediaRecorderParam.stop();
+      mediaRecorderRef.current.requestData();
+
+      mediaRecorderRef.current.stop();
       recognition.stop()
 
       cancelAnimationFrame(animationFrameId);
@@ -80,7 +86,7 @@ const AudioProvider = ({ children }) => {
     }
   };
 
-  const analyzeFrequency = (mediaRecorderParam, analyserParam, frequencyDataParam) => {
+  const analyzeFrequency = (analyserParam, frequencyDataParam) => {
 
     analyserParam.getByteFrequencyData(frequencyDataParam);
 
@@ -102,12 +108,12 @@ const AudioProvider = ({ children }) => {
       withVoice = 0;
       notVoice = 0;
 
-      if (mediaRecorderParam && mediaRecorderParam.state === 'recording') {
-        stopRecording(mediaRecorderParam)
+      if (mediaRecorderRef.current && mediaRecorderRef.current.state === 'recording') {
+        stopRecording()
       }
 
     } else {
-      animationFrameId = requestAnimationFrame(() => analyzeFrequency(mediaRecorderParam, analyserParam, frequencyDataParam));
+      animationFrameId = requestAnimationFrame(() => analyzeFrequency(analyserParam, frequencyDataParam));
     }
   }
 
@@ -125,6 +131,8 @@ const AudioProvider = ({ children }) => {
           bufferSize: 4096,
         });
 
+
+        mediaRecorderRef.current = mediaRecorder;
         setMediaRecorder(mediaRecorder);
 
 
@@ -137,8 +145,8 @@ const AudioProvider = ({ children }) => {
         const audioSource = audioContext.createMediaStreamSource(stream);
 
         audioSource.connect(analyser);
-        animationFrameId = requestAnimationFrame(() => analyzeFrequency(mediaRecorder, analyser, frequencyData));
-        mediaRecorder.start();
+        animationFrameId = requestAnimationFrame(() => analyzeFrequency(mediaRecorderRef.current, analyser, frequencyData));
+        mediaRecorderRef.current.start();
 
       })
       .catch((error) => console.error(error));
@@ -150,9 +158,9 @@ const AudioProvider = ({ children }) => {
 
   };
 
-  const dataavailable = async (callback) => mediaRecorder.addEventListener('dataavailable', (event) => {
+  const dataavailable = async (callback) => mediaRecorderRef.current.addEventListener('dataavailable', (event) => {
 
-    const audioBlob = new Blob([event.data], { type: mediaRecorder.mimeType });
+    const audioBlob = new Blob([event.data], { type: mediaRecorderRef.current.mimeType });
     const reader = new FileReader();
 
     reader.readAsDataURL(audioBlob);
@@ -171,7 +179,7 @@ const AudioProvider = ({ children }) => {
 
   const actionStop = async () => {
     setMediaRecorder(null)
-    stopRecording(mediaRecorder)
+    stopRecording()
     setSumRecording(0)
     await resetBase64StringStreamAudio()
   }
